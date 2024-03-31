@@ -1,7 +1,11 @@
+package HASHING;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class FindNumberOfTimesAWordCanBeFormedFromAString {
+
+    //Question link- https://leetcode.com/discuss/interview-question/3114099/AMAZON-OA-(INTERN-2024)
     public static void main(String[] args) {
         String s="mononom";
         String t="mon";
