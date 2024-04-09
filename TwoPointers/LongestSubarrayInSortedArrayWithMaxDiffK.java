@@ -4,65 +4,29 @@ import java.util.Scanner;
 
 class LongestSubarrayInSortedArrayWithMaxDiffK {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int k = scanner.nextInt();
-        int[] b = new int[n];
+    public static int atMostDiff(int[] arr, int n, int k) {
 
-        for (int i = 0; i < n; i++) {
-            b[i] = scanner.nextInt();
-        }
-
-        int i = 0; // Change to 0-based index
-        int j = 0; // Change to 0-based index
+        int left = 0;
+        int right = 0;
         int maxLen = 0;
-        int diff = 0;
-
-        while (i < n && j < n) {
-            diff = b[j] - b[i];
-
-            if (i == j) {
-                if (diff > k) {
-                    i++;
-                    j++;
-
-                    if (i < n) {
-                        diff = b[j] - b[i];
-                    }
-                } else {
-                    int currLen = 1;
-                    maxLen = Math.max(currLen, maxLen);
-                    j++;
-
-                    if (j < n) {
-                        diff = b[j] - b[i];
-                    }
-                }
+        while (right < n) {
+            if (Math.abs(arr[right] - arr[left]) <= k) {
+                maxLen = Math.max(maxLen, right - left + 1);
+                right++;
             } else {
-                if (diff > k) {
-                    i++;
-                    j--;
-
-                    if (i > j) {
-                        j = i;
-                    }
-
-                    diff = b[j] - b[i];
-                } else {
-                    int currLen = Math.abs(i - j) + 1;
-                    j++;
-
-                    if (j < n) {
-                        diff = b[j] - b[i];
-                    }
-
-                    maxLen = Math.max(currLen, maxLen);
-                }
+                left++;
+                if (left > right)
+                    right = left;
             }
         }
+        return maxLen;
+    }
 
-        System.out.println(maxLen);
-        scanner.close();
+
+    public static void main(String[] args) {
+        int[] arr = {8, 9, 11,12,18,20, 22, 28, 35, 36,38, 35, 358, 359, 360};
+        int n = arr.length;
+        int k = 35;
+        System.out.println(atMostDiff(arr, n, k));
     }
 }
