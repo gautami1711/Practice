@@ -21,23 +21,23 @@ public class HackerrankQuestionOptimized {
         return v;
     }
 
-    static void ck(int g) {
-        int u = g / 60;
-        int y = g % 60;
+    static void ck(int min) {
+        int hr = min / 60;
+        int m = min % 60;
 
-        if (u <= 9) {
+        if (hr <= 9) {
             System.out.print("0");
-            System.out.print(u);
+            System.out.print(hr);
         } else {
-            System.out.print(u);
+            System.out.print(hr);
         }
         System.out.print(":");
 
-        if (y <= 9) {
+        if (m <= 9) {
             System.out.print("0");
-            System.out.print(y);
+            System.out.print(m);
         } else {
-            System.out.print(y);
+            System.out.print(m);
         }
     }
 
@@ -68,24 +68,24 @@ public class HackerrankQuestionOptimized {
             i++;
         }
 
-        int c = 0;
-        int g = 0;
+        int currCnt = 0;
+        int flag = 0;
 
         for (int j = 0; j < 1440; j++) {
             if (y[j] == 0) {
-                c++;
+                currCnt++;
 
-                if (c == k) {
-                    ck(j - k + 1); // convert this to (hh:mm)
-                    g = 1;
+                if (currCnt == k) {
+                    ck(j - k + 1); // convert this minute to (hh:mm)
+                    flag = 1;
                     break;
                 }
             } else {
-                c = 0;
+                currCnt = 0;
             }
         }
 
-        if (g == 0) {
+        if (flag == 0) {
             System.out.println("-1");
         }
     }
