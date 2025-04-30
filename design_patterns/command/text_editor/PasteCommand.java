@@ -13,4 +13,9 @@ public class PasteCommand implements Command {
     public void execute() {
         textEditor.paste();
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

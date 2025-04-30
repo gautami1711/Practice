@@ -8,6 +8,11 @@ public class TurnOffCommand implements Command{
     }
 
     @Override
+    public void undo() {
+        light.turnOn();
+    }
+
+    @Override
     public void execute() {
         light.turnOff();
     }

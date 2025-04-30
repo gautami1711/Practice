@@ -14,4 +14,9 @@ public class CopyCommand implements Command {
     public void execute() {
         textEditor.copy();
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

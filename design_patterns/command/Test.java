@@ -12,5 +12,7 @@ public class Test {
 
         remote.setCommand(turnOff);
         remote.pressButton();
+        remote.pressUndo();
+        remote.pressUndo();
     }
 }
