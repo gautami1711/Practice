@@ -6,7 +6,7 @@ import design_patterns.adapter.payment.PaymentAdapter;
 public class Test {
     public static void main(String[] args) {
         MediaPlayer player=new MediaAdapter("mp4");
-        player.play("mp4","video.mp4");
+        player.play("video.mp4");
 
         //payment processor adapter
         OldPaymentProcessor oldPaymentProcessor=new PaymentAdapter();
