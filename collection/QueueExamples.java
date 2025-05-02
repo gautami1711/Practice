@@ -23,5 +23,18 @@ public class QueueExamples {
         //priority queue
         PriorityQueue<Integer> pq=new PriorityQueue<>();
         pq.add(5);
+        pq.add(10);
+        pq.add(20);
+        while (!pq.isEmpty()){
+            System.out.println(pq.poll());
+        }
+
+        pq=new PriorityQueue<>(Collections.reverseOrder());
+        pq.add(5);
+        pq.add(10);
+        pq.add(20);
+        while (!pq.isEmpty()){
+            System.out.println(pq.poll());
+        }
     }
 }

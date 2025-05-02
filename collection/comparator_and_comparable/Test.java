@@ -2,6 +2,7 @@ package collection.comparator_and_comparable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Test {
@@ -23,5 +24,13 @@ public class Test {
         for (Student s:students){
             System.out.println(s);
         }
+
+
+        //Comparator with lambda expression
+        Comparator<Student> studentComparator=(s1,s2)->Double.compare(s1.getAge(), s2.getAge());
+
+        Collections.sort(students,studentComparator);
+        System.out.println(students);
+
     }
 }
